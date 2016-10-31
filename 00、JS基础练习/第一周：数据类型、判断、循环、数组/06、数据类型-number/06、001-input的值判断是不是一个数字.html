@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>  
+  <div id="divbox">
+	<input type="text" value="">
+	<a href="javascript:void(0);">确定</a>
+  </div>
+  <script type="text/javascript">
+  var oDiv = document.querySelector("#divbox");
+  var oIput = oDiv.getElementsByTagName("input")[0];
+  var oA = oDiv.getElementsByTagName("a")[0];
+
+  oA.onclick = function(){
+	var val = oIput.value;
+	if(isNaN(val)){
+		console.log("不是一个数字"+val);
+	}else{
+		console.log("是一个数字"+val);
+	
+	}
+	
+  }
+  
+  
+  
+  
+  
+  
+  
+  </script>
+ </body>
+</html>
