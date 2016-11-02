@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>07、数据类型-boolean和数据类型转换规律</title>
+ </head>
+ <body>
+  
+  <script type="text/javascript">
+  // 07、数据类型-boolean和数据类型转换规律
+
+  // 1、boolean: true/false
+	 /*
+	  !: 一个叹号是取反，首先将值转化为布尔类型，然后再取反
+		   console.log(!3); // false 先把3转换为boolean，然后在取反
+
+	  !!: 将其它的数据类型转换为boolean类型，相当于Boolean()
+	       console.log(Boolean("chengjin")); // true
+		   console.log(!!"chengjin");		   // true
+	 */
+	
+
+  // 2、数据类型转换的规则：
+	 /*
+	  01. 如果只有一个值，判断这个值是真还是假，遵循：别人有 0 NaN "" null undefined 这五个是假的，其余的都是真
+
+
+	  02.如果是两个值比较是否相等，遵循这个规则：
+		 val1 == val2 两值可能不是同一个数据类型的，如果是==比较的话，会过行默认的数据类型转换
+
+		 1). 对象 == 对象   是永远不想等的
+		 2). 对象 == 字符串 先将对象转换为字符串(调用toString的方法)，然后再进行比较
+				[] 转换为字符串 ""
+				{} 转换为字符串"[object Object]"
+
+				![]										// false
+				[]==[]									// false
+				({}=={})								// false
+				(function fn(){} == function fn(){})	//	false
+				[] == ""								// true
+				[].toString()							// ""
+				({}) == ""								// false
+				({}.toString())							// "[object Object]"
+
+				({}.toString())							// "[object Object]"
+				[1,2,3,4,5,6,7] == ""					// false
+				[1,2,3,4,5,6].toString()				// "1,2,3,4,5,6"
+
+		3). 对象 == 布尔类型  对象先转换为字符串(toString)，然后把字符串转换为数字(Number  ""变成了0)， 布尔类型转换为数字(tring是1 false是0), 最后让两个数字比较
+
+		4). 对象==数字 对象先转换为字符串(toString)，然后把字符串在转换为(Number)
+
+		5). 数字 == 布尔 布尔转换为数字
+
+		6). 数字 == 字符串 字符串转换为数字
+
+		7). 数字串 == 布尔  都转换为数字
+
+		8). null == undefined 结果是true
+
+		9). null 域者 undefined 得其它任何的数据类型比较都想等
+
+			Number("1253"); // 33
+			[] == false		// true
+			[] == 1			// false
+			2 == true		// false
+			1 == true		// true
+
+			null == undefinde
+	 */
+
+ // 3、除了== 是比较，===也是比较(绝对比较)
+		/*
+		val1 === val2 如果数据类型不一样肯定是不相等的
+		
+		0 == false			// true
+		0 === false			// false
+		null == undefined	// true		
+		null === undefined  // false		
+		*/
+	
+  </script>
+ </body>
+</html>
