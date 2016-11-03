@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>08、数据类型-object</title>
+ </head>
+ <body>
+  
+  <script type="text/javascript">
+  // 08、数据类型-object
+
+
+  // 1、js数据类型中的对象数据类型
+	 /*
+		01.js中的对象数据类型是由多组[属性名和属性值]组成，多组键值对组成，多个key:value
+
+		02.属性名和属性值是用来描述这个对象特征的
+
+	 */
+		 var obj = {
+			 name:"chengjin",
+			 age:6
+		 };
+
+		 var persionInfo = {
+			name:"呈琛",
+			age:18,
+			height:"180cm",
+			weight:"60kg"
+		 };
+
+	// 2、创建一个对象
+		//var obj = {name:"chengjin"}; // 这种叫做字面量创建方式
+		var obj = new Object();      // 这种叫做实例创建方式
+		// 给一个对象增加一组属性名和属性值
+		obj.name = "呈琛";    // 第一种增加方法
+		//obj["name"] = "呈琛"; // 第二种增加方法
+		obj["age"] = 6;
+		
+	 // 3、修改原有属性名的属性值,规定一个对象中的属性名不能重复，如果之前有就是修改，如果没有就是增加
+		obj["name"] = "深圳呈琛";
+		// obj.name = "深圳呈琛";
+		
+	 // 4、获取属性名和属性值, 如果属性名不存在，就默认返回的结果是undefined
+		console.log(obj["name"]); // 深圳呈琛
+		console.log(obj.name);	  // 深圳呈琛
+		console.log(obj.zz);	  // undefined
+
+
+	// 5、删除属性名和属性值
+		obj.age = null;			 // 假删除一个age的值，并赋值给一个空
+		console.log(obj["age"]); // 假删除
+		console.log(obj);        // Object {name: "深圳呈琛", age: null}
+
+		delete obj.age;			 // 真删除一个值
+		console.log(obj["obj"]); // Object {name: "深圳呈琛"}
+		console.log(obj);
+
+	// 6、对象数据类型中，还可以具体的细分：
+		/*
+			{}、[]、/^$/、时间....
+
+			对象类(Object)、数组类(Array)、正则类(RegExp)、时间类(Date)、字符串类(String)、布尔类(Boolean)、Math数学函数....等对应的实例：对象、数组、正则、时间....
+		*/
+		var obj = {};
+		var ary = [];
+		var reg = /^$/;
+
+	// 7、js中对象、类、实例的区别：对象是泛指, js中万物皆对象，类是对对象的具体的细分,实例是类中的一个具体的事物
+		/*
+		 举例：自然界中万物皆对象，所有的东西可以分为：人类、什物类、动物类、物体类, 每一个人都是人类中的一个具体的实例
+		*/
+			
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  </script>
+ </body>
+</html>
