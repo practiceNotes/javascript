@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>12、js中三个循环之for循环</title>
+ </head>
+ <body>
+  
+  <script type="text/javascript">
+  // 12、js中三个循环之for循环
+	/*
+		for 循环
+		for in 循环
+		while 循环
+		三个循环的区别
+		案例：隔行变色
+	*/
+
+ // 1、for循环
+	/*
+		for循环四步曲：
+			01. 设置初始值 var i = 0;
+			02. 设置循环执行条件 i < 5;
+			03. 执行循环体中的内容 {[循环体]}包起来的部分
+			04. 执行每一轮循环完成后都执行我们的i++累加操作
+
+			执行的顺序
+				01. var i = 0;
+				02. i < 5;
+				03. console.log(i);
+				04. i++
+	
+		*/
+		/*
+		for(var i = 0; i < 10; i++){
+			console.log(i);
+		}
+		console.log(i); // 10
+		*/
+		
+	// 2、break / continue;
+		/*
+		 for(var j = 0; j < 5; j++){
+			break; 
+			console.log("break==" +j);
+		 }
+		 
+		 for(var k = 0; k < 5; k++){
+			continue; 
+			console.log("continue==" + k);
+		 }
+		 
+		 */
+		/*
+		 在循环体中遇到这两个关键字，循环体中后面的代码就不在执行了
+		 break: 在循环体中，出现break， 整个循环就直接的结果了
+		 continue: 在循环体中，出现continue, 当前这一轮的循环就结束了，继续下一轮的循环
+		*/
+	
+		 for(var i = 0; i < 10; i++){
+			if(i <= 5){
+				i+=2;
+				continue;
+			}
+			i+=3;
+			break;
+			console.log(i);
+		 }
+		 console.log(i); //9
+
+  
+  
+  
+  
+  
+  
+  
+  </script>
+ </body>
+</html>
