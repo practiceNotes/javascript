@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>14、js中循环的应用[隔行变色]</title>
+  <style>
+   *{margin:0; padding:0;}
+    body{
+		font-family:Arial;
+		font-size:12px;
+	}
+	ul,li{
+		list-style:none
+	}
+	#list{
+		margin:10px auto;
+		padding:10px;
+		width:600px;
+		border:1px solid #DDD;
+		border-radius:5px;
+		background:-webkit-linear-gradient(top left, #31b0d5, #ff3399,#ffff00);
+	}
+	#list li{
+		height:30px;
+		line-height:30px;
+		cursor:pointer;
+	}
+	#list li:hover{
+		background:green;
+		color:#FFF;
+	}
+	.c1{
+		background:#DDD;
+	}
+	.c2{
+		background:#a6e1ec;
+	}
+	
+	.c3{
+		background:#ff3399;
+	}
+	
+	
+  </style>
+ </head>
+ <body>
+  
+  <div id="list">
+	<ul>		
+		<li>习近平谈新闻舆论工作：治国理政、定国安邦的大事</li>
+		<li>湖南省委宣传部长张文雄涉嫌严重违纪被调查</li>
+		<li>韩海警发布《武器使用指南》允许先开火后报告</li>
+		<li>美国人选希拉里还是特朗普 跟我来现场围观</li>
+		<li>四川官方回应“黑熊被活剥火烤”：被毙后焚烧</li>
+		<li>热身赛-武磊两球郜林破门 里皮首秀国足5-0卓尔</li>
+		<li>张雨绮继女生母讽其作秀 私照性感上围傲人(图)</li>
+		<li>囧哥:支付宝出“高端单身交友圈” 颜值分数低者禁入</li>
+		<li>实拍大叔对妙龄女学生做不雅动作 身体紧贴且摆弄下体(图)</li>
+		<li>19岁妙龄少女广州生娃后成植物人 孩子父亲成谜(图)</li>
+		<li>韩国检方证实：崔顺实电脑存政府机密文件</li>
+		<li>六中全会后首虎！安徽副省长陈树隆接受调查</li>
+		<li>重磅！奥巴马决定大选结束后炒掉FBI局长</li>
+		<li>全球最大天文馆在上海开工 2020年建成开放</li>
+		<li>产妇8次产检生下眼耳鼻缺失儿 医院:漏诊难避免</li>
+		<li>男子花千元旅馆内做变性手术 主刀“网友”被诉</li>
+		<li>四川队官方宣布约什加盟 前NBA鹰王飞抵CBA</li>
+		<li>曝张纪中曾威胁樊馨蔓“司机”：拿刀剁你</li>
+		<li>广州立冬日飙出30.5℃高温 10月30日其实已入秋</li>
+		<li>男子深圳地铁摸臀猥亵多女 被发现后持刀刺伤2人</li>
+		<li>注意:这些股票打死不要卖</li>
+		<li>本周走势震惊 10股强势加入</li>
+		<li>大变革！国务院发话 河南这类人要富了</li>
+		<li>冰雪中保存超3万年的洞狮：身体部位保持完整</li>
+		<li>湖南省委宣传部长张文雄涉嫌严重违纪被调查</li>
+		<li>一人打出20-0！霸气比肩詹皇 藐视一切的存在</li>
+		<li>公交车上的这种福利 能不能遇到全看运气</li>
+		<li>3股被严重低估 机构游资疯狂介入可建仓</li>
+	</ul>
+  </div>
+  <script type="text/javascript">
+  var oList = document.getElementById("list");
+  var oLis = oList.getElementsByTagName("li");
+  
+  // 二行变色
+	  /*
+	  for(var i = 0 ; i < oLis.length; i++){
+		var oLi = olis[i];
+		i%2===0? oLi.className = "c1":oLi.className = "c2";
+	  }
+	  */
+
+  // 三行变色
+	/*
+	  for(var i = 0 ; i < oLis.length; i++){
+		var oLi = oLis[i];
+		switch(i%3){
+			case 0:
+				oLi.className = "c1";
+				break;
+			case 1:
+				oLi.className = "c2";
+				break;
+			default:
+				oLi.className = "c3";
+
+		};
+	  }
+	*/
+
+// 滑动变色再清出其它的颜色
+ for(var i = 0 ; i < oLis.length; i++){
+	var oLi = oLis[i];
+	//i%2 === 0? oLi.className = "c1": oLi.className = "c2";
+
+	i%2 === 0 ? (oLi.className = "c1", oLi.cc = "c1") : (oLi.className = "c2", oLi.cc = "c2");
+
+    // 添加自定义属性 因为每一个li都是对象数据类型，那么应该用这个思想，我们给每一个li增加一个自定义属性名，属性值就是当前li的className的值
+	//oLi.cc = "chengjin";
+	console.log(typeof oLi);
+	
+	// 鼠标移上去
+	oLi.onmouseover = function(){
+		this.className = "c3"
+	}
+	// 鼠标离开
+	oLi.onmouseout = function(){
+		// 原来是啥就是啥
+		var oldVal = this.cc;	
+		console.log(oldVal);
+		this.className = oldVal;		
+	}
+
+ }
+
+
+
+	
+  
+  
+  
+  
+  
+  
+  </script>
+ </body>
+</html>
