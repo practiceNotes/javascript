@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11. 跨模块常量</title>
+</head>
+<body>
+<script>
+    // 11. 跨模块常量
+    const variantName = "variantValue";
+
+    // export 输出一个模块 让外面进行调用
+
+    //1. 引入一个module.js
+        /**
+         * import(引入) *(全部) as(就是把它当做) variant(变量) from(从哪里引入) "./11.1-modulel(是一个js文件)";
+         * import       是引入的意思
+         * *            是全部
+         * as           是把它当做什么来引入：如变量...
+         * variant      是一个自定义的变量名，可以自己取随意起名的
+         * from         是从哪里引入
+         * "./module"   指定的文件路径
+         *
+         *
+         */
+        // 引用入方法
+            import * as variant from "./11.1-modulel";
+        // 使用方法
+            let getVar = variant.riantName;
+            console.log(getVar);
+
+
+
+
+
+    // 被引入的js文件 start
+    /**
+     * module.js
+     * @type {number}
+     */
+    export const initVariantName = 100;
+    export const floatVariantName = 3.14159165;
+    export const chartVariantName = "中国深圳";
+    // 被引入的js文件 end
+
+    // use.js 引入以上全的一个js文件 全部的方法
+    import * as variant from "./11.1-modulel";
+    console.log(variant.initVariantName);   // 100
+    console.log(variant.floatVariantName);  // 3.14159165
+    console.log(variant.chartVariantName);  // 中国深圳
+
+    // otherUse.js 只引入指定的方法
+    import {floatVariantName, chartVariantName} as variantstr from './module';
+    console.log(variantstr.floatVariantName);   // 3.14159165
+    console.log(variantstr.chartVariantName);   // 中国深圳
+
+
+    // onlyInt.js 我只引入一个js
+    import initVariantName as variant from '/module'
+    console.log(variant.initVariantName);   // 100
+
+
+</script>
+</body>
+</html>

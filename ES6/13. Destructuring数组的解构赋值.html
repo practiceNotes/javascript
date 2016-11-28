@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13. Destructuring数组的解构赋值</title>
+</head>
+<body>
+<script>
+    // Destructuring数组的解构赋值
+
+    // ES5
+        {
+            var a = 1;
+            var b = 2;
+            var c = 3;
+        }
+
+    // ES6
+        {
+            let [a, b, c] = [1, 2, 3];
+            //console.log(a, b, c);   // 1 2 3
+        }
+
+
+    // 对应位置的关系
+    {
+        let [foo, [[bar], base]] = [1, [[2], [3]]];
+        console.log(foo);   // 1
+        console.log(bar);   // 2
+        console.log(base);  // 3
+
+        let [, , third] = ['first', 'second', 'third'];
+        console.log(third); // third
+
+        let [one, , three] = ['One', 'Two', "Three"];
+        console.log(one);   // One
+        console.log(three); // three
+
+        let [head,...tail] = [1,2,3,4,5,6,7,8,9];
+        console.log(head);  // 1
+        console.log(tail);  // [2, 3, 4, 5, 6, 7, 8, 9]
+    }
+
+    // 数组解构不成功
+    {
+        let [temp] = [];
+        console.log(temp);      // undefined
+
+        let [first, second] = [100];
+        console.log(first);     // 100
+        console.log(second);    // undefined
+    }
+
+</script>
+</body>
+</html>

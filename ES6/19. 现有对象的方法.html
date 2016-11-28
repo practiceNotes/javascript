@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>19. 现有对象的方法</title>
+</head>
+<body>
+
+<script>
+    // 19. 现有对象的方法
+    {
+        /* 以下这样写会报错
+        let y;
+        {y} = {y:2};
+        console.log(y); // Uncaught SyntaxError: Unexpected token =*/
+
+        // 这样是正确的写法
+        let x;
+        ({x} = {x:1});
+         console.log(x);    // 1
+    }
+
+
+    // 数学函数
+        {
+            let math = Math.sin(Math.PI/6);
+            console.log(math);  // 0.49999999999999994
+        }
+
+    {
+        let {sin, cos, tan, log} = Math;
+        console.log(sin(Math.PI/6));    // 0.49999999999999994
+        console.log(cos(Math.PI/6));    // 0.8660254037844387
+        console.log(tan(Math.PI/6));    // 0.5773502691896257
+    }
+</script>
+</body>
+</html>

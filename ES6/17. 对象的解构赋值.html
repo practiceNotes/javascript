@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17. 对象的解构赋值</title>
+</head>
+<body>
+
+<script>
+    // 01. 对象的解构赋值
+    {
+        let {name, age} = {name:"cc", age:26};
+        console.log(name);  // cc
+        console.log(age);   // 26
+    }
+
+
+    // 02. 对象的解构赋值
+        /**
+         * 它是不按照顺序的
+         */
+        {
+            let {name, age, id} = {id:"007" ,name:"cc", age:26};
+            console.log(name);  // cc
+            console.log(age);   // 26
+            console.log(id);    // 007
+        }
+
+    // 03. 变量与属性名不一至的处理
+        {
+            let {persone_name, persone_age, persone_id} = {id:"007" ,name:"cc", age:26};
+            console.log(persone_name);  // undefined
+            console.log(persone_age);   // undefined
+            console.log(persone_id);    // undefined
+        }
+
+        {
+            let {name:persone_name, age:persone_age, id:persone_id}  = {id:"007" ,name:"cc", age:26};
+            console.log(persone_name);  // cc
+            console.log(persone_age);   // 26
+            console.log(persone_id);    // 007
+        }
+
+
+     // 04. 对象解构赋值 object
+        {
+            let object = {first:"hello", last:"world"};
+            let {first:firstName, last:lastName} = object;
+            console.log(firstName); // hello
+            console.log(lastName);  // rorld
+        }
+
+
+</script>
+
+</body>
+</html>

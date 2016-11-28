@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15. 制定默认值</title>
+</head>
+<body>
+<script>
+    // 15. 制定默认值
+        {
+            // 默认值
+            let [tempa = "string"] = [];
+            console.log(tempa); // string
+
+            // 改变默认值
+            let [temp = "string"] = ["tempString"];
+            console.log(temp); // string
+
+            let [x = "aaa", y] = ["bbb"];
+            console.log(x); // aaa
+            console.log(y); // undefined
+
+            let [m, n = "ccc"] = ["bbsb"];
+            console.log(m); // bbsb
+            console.log(n); // ccc
+
+
+            let [p, q = "aaa"] = ["bbb", undefined];
+            console.log(p); // bbb
+            console.log(q); // aaa
+        }
+
+        // 非遍历结构
+        {
+            // let [temp] = 1;          // TypeError: is not a function
+            // let [temp] = false;      // is not a function
+            // let [temp] = NaN;        // undefined is not a function
+            // let [temp] = undefined;  // undefined is not a function
+            let [temp] = undefined;     // Uncaught TypeError: Cannot read property 'Symbol(Symbol.iterator)' of undefined
+            console.log(temp);
+
+        }
+
+</script>
+</body>
+</html>

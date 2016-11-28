@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20. 字符串的解构赋值</title>
+</head>
+<body>
+
+<script>
+    // 01. 字符串的解构赋值
+        {
+            const [a, b, c, d, e] = "hello";
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(d);
+            console.log(e);
+        }
+
+
+    // 02. 字符串的属性解构
+        {
+            const {length:len} = "hello";
+            console.log(len);       // 5
+
+
+            const {length} = "Hello World!";
+            console.log(length);    // 12
+        }
+
+</script>
+</body>
+</html>

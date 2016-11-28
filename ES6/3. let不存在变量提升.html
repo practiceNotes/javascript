@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3. let不存在变量提升</title>
+</head>
+<body>
+<script>
+    // 3. let不存在变量提升
+
+
+    // ES5
+        {
+            console.log("ES5");
+            var a = [];
+            for(var i = 0; i < 10; i++){
+                var c = i;
+                a[i] = function(){
+                    console.log(c);
+                };
+            }
+            a[5](); // 9
+        }
+
+
+
+    // ES6
+    {
+        let b = [];
+        for(var j = 0; j < 10; j++){
+            let d = j;
+            b[j] = function(){
+                console.log(b);
+            };
+        }
+        b[5]();
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4. 1-let暂时性死区-不受外界影响</title>
+</head>
+<body>
+<script>
+    // 4. 1-let暂时性死区-不受外界影响
+    /**
+     * let 只要作用域内在的let命令，它所声明的变量就"绑定"(binging)这个区域，不再受外部影响
+     *
+     */
+
+    var a = 100;
+    {
+        //console.log(a);  // a is not defined
+        let a = 100;
+        console.log(a); // 100
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10. const对象冻结</title>
+</head>
+<body>
+<script>
+    // 10. const对象冻结
+    /**
+     * Object.freeze({}) 对象冻结
+     * @type {Object}
+     */
+        {
+            const person = Object.freeze({});
+            person.name = "cc";
+            person.age = 30;
+
+            console.log(person.name);   // undefined
+            console.log(person.age);    // undefined
+            console.log(person);        // Object
+        }
+
+    // 01. 使用const对象冻结
+    {
+        const person = Object.freeze({
+            name:"cc",
+            age: 30
+        });
+
+        console.log(person.name);   // undefined
+        console.log(person.age);    // undefined
+        console.log(person);        // Objectage: 30name: "cc"__proto__: Object
+    }
+
+
+
+</script>
+</body>
+</html>

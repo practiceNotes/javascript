@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div id="content"></div>
+
+<script src="../../../node_modules/react/react.js"></script>
+<script src="../../../node_modules/react-dom/dist/react-dom.js"></script>
+<script src="../../../node_modules/babel-core/lib/api/browser.js"></script>
+<script type="text/babel"></script>
+<script>
+    // tutorial1.js
+    var CommentBox = React.createClass({
+        render: function() {
+            return (
+                <div className="commentBox">
+                Hello, world! I am a CommentBox.
+            </div>
+            );
+        }
+    });
+    ReactDOM.render(
+    <CommentBox />,
+        document.getElementById('content')
+    );
+</script>
+</body>
+</html>

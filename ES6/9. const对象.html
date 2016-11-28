@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9. const对象</title>
+</head>
+<body>
+<script>
+    // 9. const对象
+    {
+        const person = {};
+        person.name = "张三";
+        person.age  = 30;
+        console.log(person.name);   // 张三
+        console.log(person.age);    // 30
+        console.log(person);        // Object {name: "张三", age: 30}
+    }
+
+    // 01. const 对象错误方法
+        {
+            const person = {};
+            person.name = "张三";
+            person.age  = 30;
+            console.log(person.name);   // 张三
+            console.log(person.age);    // 30
+            console.log(person);        // Object {name: "张三", age: 30}
+
+            //person = {}; // 理解为重新赋值
+        }
+
+    // 02. const 数组
+        {
+            const arr = [];
+            console.log(arr);
+            console.log(arr.length);
+            arr.push("赵子龙");
+
+            console.log("............");
+            console.log(arr);
+            console.log(arr.length);
+            arr.push("赵子龙");
+            arr.length = 0;
+            console.log(arr);
+            console.log(arr.length);
+            arr.push("赵云");
+        }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12. 全局对象属性</title>
+</head>
+<body>
+<script>
+    // 12. 全局对象属性
+
+    var varName = "varValue";
+    console.log(varName);       // varValue
+
+    // NodeJS 环境下 全局变量声明是使用 global
+    //console.log(global.varName);
+
+    // 通用环境
+    console.log(this.varName);  // varValue
+
+    // ES6
+    let letName = "letValue";
+    console.log(window.letName); // undefined
+    console.log(this.letName);   // undefined
+
+</script>
+</body>
+</html>

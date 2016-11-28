@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18. 对象解构赋值的默认值</title>
+</head>
+<body>
+
+
+<script>
+    // 18. 对象解构赋值的默认值
+    {
+        let {x = 3} = {};
+        console.log(x); // 3
+
+        let {s, y = 5} = {s:1};
+        console.log(s); // 1
+        console.log(y); // 5
+
+        let {masage:msg = "you are a person!"} = {};
+        console.log(msg);   // you are a person!
+
+        let {k = 3} = {k:undefined};
+        console.log(k);     // 3
+
+        let {j = 3} = {j:null};
+        console.log(j); // null
+
+    }
+
+
+</script>
+</body>
+</html>

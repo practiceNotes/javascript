@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5. let不允许重复声明</title>
+</head>
+<body>
+<script>
+    // 5. let不允许重复声明
+    {
+        var a = 100;
+        var a = 200;
+        console.log(a);
+    }
+
+    {
+        var a = 100;
+        let a = 200;
+        cosole.log(a);
+    }
+
+    {
+        let c = 100;
+        var c = 200;
+        console.log(c);
+    }
+
+    {
+        let d = 100;
+        let d = 200;
+        console.log(d);
+    }
+    console.log(d);
+</script>
+</body>
+</html>

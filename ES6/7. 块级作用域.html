@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7. 块级作用域</title>
+</head>
+<body>
+<script>
+    console.log("ES5");
+    {
+        function fun(){
+            let num = 100;
+            if(true){
+                let num = 200;
+            }console.log(num);
+        };
+    }
+
+    {
+        function fun(){
+            let num = 100;
+            if(true){
+                let num = 200;
+            }
+            console.log(num); // 100
+        };
+        fun();
+    }
+
+
+    // 立即执行函数
+        // ES5的写法
+        (function () {
+
+        }());
+
+        // ES6的写法
+        {
+            let temp = 100;
+        }
+
+
+        {
+            function fun(){
+                console.log("I an outside!");
+            };
+
+            {
+                if(false){
+                    function fun(){
+                        console.log("i ma inside!");
+                    };
+                };
+                fun(); // I an outside!
+            }
+        };
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5. 1- let模块内-不允许重复声明.html</title>
+</head>
+<body>
+<script>
+    // 5. 1- let模块内-不允许重复声明.html
+    {
+        var a = 100;
+        var a = 200;
+        console.log(a);
+    }
+
+    {
+        let a = 200;
+        console.log(a);
+    }
+
+    // 模块内部不允许声明
+    {
+        var a = 1;
+        let a = 2;
+        console.log(a);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21. 函数参数的解构赋值</title>
+</head>
+<body>
+<script>
+    // 01. 函数参数的解构赋值
+
+    {
+        function sum([x, y]){
+            return x + y;
+        };
+        var sums = sum([1, 2]); // 3
+        console.log(sums);
+    }
+
+
+    // 02.函数参数的解构的默认赋值
+        {
+            function fun({x = 0, y = 0} = {}){
+                return [x, y];
+            };
+            console.log(fun({x:100, y:200}));   // [100, 200]
+
+            console.log(fun({x:100}));          // [100, 0]
+            console.log(fun({}));               // [100, 0]
+            console.log(fun());                 // [100, 0]
+        }
+
+    // 03.函数参数的解构的默认赋值
+    {
+        function fun({x,y} = {x:0, y:0}){
+            return [x, y];
+        };
+        console.log(fun({x:100, y:200}));
+    }
+</script>
+</body>
+</html>

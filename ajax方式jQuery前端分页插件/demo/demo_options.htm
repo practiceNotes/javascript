@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jQuery Pagination Playground</title>
+    <link rel="stylesheet" href="../pagination.css"/>
+    <link rel="stylesheet" href="demo.css"/>
+
+</head>
+<body>
+<h1>jQuery分页插件演示</h1>
+<div id="Pagination">
+</div>
+<br style="clear:both;"/>
+<h3>美国众议院前成员名单（A）</h3>
+<dl id="Searchresult">
+    <dt>搜索结果将被插入到这里…</dt>
+</dl>
+<table>
+    <thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody class="tab-data">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<h3>分页参数配置表</h3>
+<!-- 这种形式只是展示了整个范围的选项和显示风格。 -->
+<div name="paginationoptions" style="display:block;">
+    <p>
+        <label for="items_per_page">每页的项目数</label>
+        <input type="text" value="5" name="items_per_page" id="items_per_page" class="numeric"/>
+    </p>
+    <p>
+        <label for="num_display_entries">一些分页链接显示</label>
+        <input type="text" value="0" name="num_display_entries" id="num_display_entries" class="numeric"/>
+    </p>
+    <p>
+        <label for="num">开始和结束点的数目</label>
+        <input type="text" value="5" name="num_edge_entries" id="num_edge_entries" class="numeric"/>
+    </p>
+    <p>
+        <label for="prev_text">“前”标签</label>
+        <input type="text" value="上一个" name="prev_text" id="prev_text"/>
+    </p>
+    <p>
+        <label for="next_text">“下一个”标签</label>
+        <input type="text" value="下一个" name="next_text" id="next_text"/>
+    </p>
+    <input type="button" id="setoptions" value="设置选项"/>
+</div>
+
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.pagination.js"></script>
+<!-- Load data to paginate -->
+<script type="text/javascript" src="members.js"></script>
+<script type="text/javascript">
+
+    //这demonstrates /文件的不同选项的pagination插件
+    //它也demonstrates /如何使用JavaScript数据结构。
+    //生成的内容和/ paginated如何显示一个以上的
+    //项目与项目/人均人均_ _页页。
+
+    /**
+     * 显示内容的回调函数。
+     *
+     * 被称为每一次在分页链接，用户点击。
+     *
+     * @param {int } page_index新页面的索引
+     * @param {jQuery} JQ与jQuery分页链接作为一个jQuery对象的容器
+     */
+    function pageselectCallback(page_index, jq) {
+        // 让每pagionation页元素形成数
+        var items_per_page = $('#items_per_page').val();
+        var max_elem = Math.min((page_index + 1) * items_per_page, members.length);
+        var newcontent = '';
+        var temp;
+
+        // 通过对内容的选择和构建一个HTML字符串迭代
+        for (var i = page_index * items_per_page; i < max_elem; i++) {
+
+            console.log(members[i]);
+            console.log(members[i][0]);
+
+            temp +="<tr>"+
+                "    <td>'"+members[i][0]+"'</td>"+
+                "    <td>'"+members[i][2]+"'</td>"+
+                "    <td>'"+members[i][3]+"'</td>"+
+                "</tr>";
+        }
+
+        // 以新内容取代旧内容
+        $('#Searchresult').html(temp);
+
+        //prevent点击事件传播
+        return false;
+    }
+
+    //表单包含许多pagiantion optiosn领域你可以
+    //很快看到的不同选择的结果。
+    //这个函数创建的分页功能的选择对象。  这将是不必要的，在你的应用程序中，你只是设置
+    //选项一次。
+    function getOptionsFromForm() {
+        var opt = {callback: pageselectCallback};
+        // 从文本字段中收集选项-字段被命名为他们的选项
+        $("input:text").each(function () {
+            opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
+        });
+        // 避免在这个演示HTML注入
+        var htmlspecialchars = {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}
+        $.each(htmlspecialchars, function (k, v) {
+            opt.prev_text = opt.prev_text.replace(k, v);
+            opt.next_text = opt.next_text.replace(k, v);
+        })
+        return opt;
+    }
+
+    // 当文件已经加载、初始化分页的形式
+    $(document).ready(function () {
+        // 创建窗体分页单元的选择
+        var optInit = getOptionsFromForm();
+        $("#Pagination").pagination(members.length, optInit);
+
+        // 事件是对按钮
+        $("#setoptions").click(function () {
+            var opt = getOptionsFromForm();
+            // 重新创建分页内容的新参数
+            $("#Pagination").pagination(members.length, opt);
+        });
+
+    });
+
+</script>
+</body>
+</html>
