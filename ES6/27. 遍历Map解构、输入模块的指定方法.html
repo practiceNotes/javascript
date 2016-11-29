@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27. 遍历Map解构、输入模块的指定方法</title>
+</head>
+<body>
+<script>
+    // 27. 遍历Map解构、输入模块的指定方法
+
+    // 01. 遍历Map解构
+    {
+        let map = new Map();
+        map.set("id", "007");
+        map.set("name","cc");
+
+        // 01-、获取键名的键值
+        for(let [key, value] of map){
+            console.log(key + " is "+value);   // name is cc
+        }
+
+        // 02-、获取键名
+        for(let [key] of map){
+            console.log(key)
+        }
+
+        for(let [key] of map){
+            console.log(key);
+        }
+    }
+
+    // 02. 输入模块的指定方法
+        {
+            const {SoureMapConsumer, SourceNae} = require("source-map");
+
+        }
+
+
+</script>
+</body>
+</html>

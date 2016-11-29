@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>24. 函数参数的定义</title>
+</head>
+<body>
+<script>
+    // 24. 函数参数的定义
+
+    // 01、 参数是一组有次序的值
+    {
+        function fun([x, y, z]){
+            // x = 100;
+            // y = 200;
+            // z = 300;
+            console.log(x); // 100
+            console.log(y); // 200
+            console.log(z); // 300
+        };
+        // 调用
+        fun([100, 200, 300]);
+    }
+
+
+    // 02、参数是一级无次序的值
+    {
+        function fun({id, name, age}){
+            // id   = "007"
+            // name = "cc"
+            // age  = 26
+
+            console.log(id);    // 007
+            console.log(name);  // cc
+            console.log(age);   // 26
+
+        };
+        fun({id:"007", name:"cc", age:26});
+
+    }
+</script>
+</body>
+</html>

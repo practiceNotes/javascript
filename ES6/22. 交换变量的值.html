@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>22. 交换变量的值</title>
+</head>
+<body>
+
+<script>
+    // 22. 交换变量的值
+    console.log("ES5:");
+    {
+        // ES5
+
+        var a = 100;
+        var b = 200;
+        console.log("交换前");
+        console.log("a = " +a);     // a = 100
+        console.log("b = " + b);    // b = 200
+
+
+        var temp;
+        a = b;
+        b = temp;
+        console.log("交换后");
+        console.log("a = " +a); // a = 200
+        console.log("b = " +b); // b = undefined
+    }
+
+
+    console.log("ES6:");
+    {
+        let x = 100;
+        let y = 200;
+        console.log("交换前");
+        console.log("x = " + x);    // y = 100
+        console.log("y = " + y);    // y = 200
+
+        [x, y] = [y, x];
+        console.log("交换后");
+        console.log("x = " + x);    // y = 200
+        console.log("y = " + y);    // x = 100
+    }
+
+</script>
+</body>
+</html>

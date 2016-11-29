@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23. 从函数返回多个值</title>
+</head>
+<body>
+<script>
+    // 23. 从函数返回多个值
+
+    // 01. 返回一个数组
+        {
+            function fun(){
+                return [1, 2,3];
+            }
+            let [x, y, z] = fun();
+            console.log(x, y, z); // 1 2 3
+        }
+
+
+        // 02. 返回一个对象
+    {
+        function fn(){
+            return {
+                id: "007",
+                name: "cc",
+                age: "26"
+            };
+        };
+        let {id, name, age} = fn();
+        console.log(id, name, age); // 007 cc 26
+        console.log(id);
+        console.log(name);
+        console.log(age);
+
+        // 自定义一个接收的变量
+        let {id:person_id, name:person_name, age:person_age} = fn();
+        console.log(person_id);     // 007
+        console.log(person_name);   // cc
+        console.log(person_age);    // 26
+
+    }
+</script>
+</body>
+</html>
